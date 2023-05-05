@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+        .container {
+            height: 660px;
+            max-width: 100%;
+            background-image: url(https://images.unsplash.com/photo-1614852207091-9d38a326d2ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container1 {
+            background-image: url(https://images.unsplash.com/photo-1504173010664-32509aeebb62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=827&q=80);
+            height: 560px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .content {
+            height: 400px;
+            max-width: 100%;
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+            color: rgb(150, 164, 177);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" onmouseenter="function1()">
+        <div class="navbar" style="margin: auto; justify-content: space-between;">
+            <li class="design1" style="list-style: none; color: antiquewhite;"><b style="font-size: 25px;"> Weather
+                    Dashboard </b></li>
+            <h2 id="heading2" style="color: lightblue;"></h2>
+            <li class="design1" style="list-style: none; color: antiquewhite; font-size: 25px;"><b>2023</b></li>
+        </div>
+        <div class="container1">
+            <form class="d-flex" role="search"
+                style="padding-top: 10px; padding-bottom: 10px; justify-content: center;">
+                <input id="city" class="form-control me-2" type="search" placeholder="enter the city name"
+                    aria-label="Search"
+                    style="background: none; max-width: 180px; border-top: none; border-left: none; border-right: none; color: aquamarine;">
+                <button class="btn btn-outline-light" type="submit" id="submit"
+                    style="border-right: none; border-left: none; border-bottom: none;">Search</button>
+            </form>
+            <h1 class="my-4 " style="color: cadetblue;">WEATHER FOR <span id="cityName"
+                    style="color: lightgrey; text-transform: capitalize;"></span></h1>
+            <div class="content">
+                <div class="content1" style="height: 400px;  max-width: 500px; margin-left: 10px;  font-size: 25px;">
+                    <h1 style="color: aliceblue;"> <b><span id="temp"></span></b>&deg;celsius</h1>
+                    <li>the humidity is: &nbsp;<span id="humidity"></span></li>
+                    <li>sunrise: &nbsp;<span id="sunrise"></span></li>
+                    <li>sunset: &nbsp;<span id="sunset"></span></li>
+                    <li>cloud_pct: &nbsp;<span id="cloud_pct"></span></li>
+                    <li>temp may go up to: &nbsp;<span id="max_temp"></span></li>
+                    <li>temp may go down to: &nbsp;<span id="min_temp"></span></li>
+                    <li>the wind degree is: &nbsp;<span id="wind_degrees"></span></li>
+                    <li>the wind speed is: &nbsp;<span id="wind_speed"></span></li>
+                    <li>feels like: &nbsp;<span id="feels_like"></span></li>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer" style="color: antiquewhite; display: flex; justify-content: space-between;">
+            <li> KATHMANDU CITY </li>
+            <li id="heading1"></li>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+        </script>
+    <script>
+        let today = new Date()
+        let h = today.getHours()
+        let m = today.getMinutes()
+        let s = today.getSeconds()
+
+
+        const function1 = () => {
+            if (h >= 1 && h <= 12) {
+                document.getElementById("heading1").innerHTML = "GOOD-MORNING  from NEPAL"
+            } else if (h > 12 && h <= 17) {
+                document.getElementById("heading1").innerHTML = "GOOD-EVENING  from NEPAL"
+            } else {
+                document.getElementById("heading1").innerHTML = "GOOD-NIGHT  from NEPAL"
+            }
+        }
+
+
+
+        setInterval(() => {
+            let today = new Date()
+            let h = today.getHours()
+            let m = today.getMinutes()
+            let s = today.getSeconds()
+            if (h >= 1 && h <= 12) {
+                document.getElementById("heading2").innerHTML = (`${h}:${m}:${s}`) + " " + "AM"
+            } else if (h > 12 && h <= 7) {
+                document.getElementById("heading2").innerHTML = (`${h}:${m}:${s}`) + " " + "PM"
+            } else {
+                document.getElementById("heading2").innerHTML = (`${h}:${m}:${s}`) + " " + "PM"
+            }
+        }, 1000)
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
